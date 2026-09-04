@@ -7,189 +7,20 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --black: #0C0C0C;
-  --cream: #FEFDF9;
-  --blue: #1700DB;
-  --blue-dark: #1700DB;
-  --text-dark: #2A2724;
-  --text-mid: #5C5650;
-  --serif: 'STIX Two Text', Georgia, serif;
-  --sans: 'Instrument Sans', Helvetica, sans-serif;
-}
-
-html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-body { font-family: var(--sans); line-height: 1.6; overflow-x: hidden; }
-
-/* ── PANEL 1: HERO (fixed behind) ── */
-.hero-wrapper { position: relative; height: 115vh; }
-
-.hero {
-  position: fixed; top: 0; left: 0; right: 0;
-  height: 100vh;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  text-align: center;
-  z-index: 1;
-  background: var(--black);
-  color: #FEFDF9;
-}
-
-.hero-content { position: relative; z-index: 2; padding: 0 2rem; }
-
-.hero-logo {
-  width: 94px;
-  height: 94px;
-  margin: 0 auto 2.25rem;
-  opacity: 0;
-  animation: fadeIn 0.9s ease 0.2s forwards;
-}
-.hero-logo svg { width: 100%; height: 100%; }
-
-.hero h1 {
-  font-family: var(--serif);
-  font-size: clamp(2.2rem, 4.8vw, 3.8rem);
-  font-weight: 400;
-  line-height: 1.1;
-  letter-spacing: 0.01em;
-  opacity: 0; animation: fadeUp 0.85s ease 0.35s forwards;
-}
-
-.hero-sub {
-  font-family: var(--serif);
-  font-size: clamp(0.92rem, 1.4vw, 1.1rem);
-  font-weight: 400;
-  font-style: italic;
-  max-width: 460px;
-  margin: 1.25rem auto 0;
-  line-height: 1.7;
-  opacity: 0; animation: fadeUp 0.85s ease 0.55s forwards;
-}
-
-/* ── SCROLL-OVER ── */
-.scroll-content { position: relative; z-index: 10; }
-.scroll-content > :first-child { box-shadow: 0 -30px 80px rgba(0,0,0,0.12); }
-
-/* ── PANEL 2: BODY ── */
-.panel-body {
-  padding: clamp(4.5rem, 8vw, 7.5rem) clamp(2rem, 6vw, 5.5rem);
-  background: var(--cream);
-  color: var(--text-dark);
-}
-
-.panel-body-inner { max-width: 680px; margin: 0 auto; }
-
-.body-label {
-  font-family: var(--sans);
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  margin-bottom: 2.5rem;
-  color: rgba(42, 39, 36, 0.45);
-}
-
-.body-statement {
-  font-family: var(--serif);
-  font-size: clamp(1.15rem, 2vw, 1.38rem);
-  font-weight: 400;
-  line-height: 1.72;
-  margin-bottom: 3rem;
-}
-
-.body-rule {
-  width: 100%;
-  height: 1px;
-  margin-bottom: 3rem;
-}
-
-.body-solution {
-  font-family: var(--serif);
-  font-size: clamp(1.02rem, 1.55vw, 1.18rem);
-  font-weight: 400;
-  font-style: italic;
-  line-height: 1.78;
-}
-
-.body-solution strong {
-  font-style: normal;
-  font-weight: 500;
-}
-
-/* ── PANEL 3: FOOTER ── */
-.panel-footer {
-  padding: clamp(3.5rem, 6vw, 5rem) clamp(2rem, 6vw, 5.5rem);
-  background: var(--blue);
-  color: #FFFFFF;
-}
-
-.panel-footer-inner { max-width: 680px; margin: 0 auto; }
-
-.footer-heading {
-  font-family: var(--serif);
-  font-size: clamp(1.5rem, 2.8vw, 2.2rem);
-  font-weight: 400;
-  margin-bottom: 1rem;
-}
-
-.footer-text {
-  font-family: var(--sans);
-  font-size: 0.85rem;
-  font-weight: 400;
-  margin-bottom: 0.35rem;
-}
-
-.footer-email {
-  font-family: var(--sans);
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: opacity 0.3s;
-}
-.footer-email:hover { opacity: 0.8; }
-
-
-/* V2: Electric Blue overrides */
-.hero h1 { color: #FEFDF9; }
-.hero-sub { color: rgba(254, 253, 249, 0.5); }
-.hero::after {
-  content: '';
-  position: absolute; inset: 0;
-  background: radial-gradient(ellipse 50% 35% at 50% 45%, rgba(20, 0, 255, 0.03) 0%, transparent 70%);
-  pointer-events: none;
-}
-.body-statement { color: var(--text-dark); }
-.body-rule { background: var(--blue); opacity: 0.15; }
-.body-solution { color: var(--text-mid); }
-.body-solution strong { color: var(--blue-dark); }
-.footer-heading { color: #FFFFFF; }
-.footer-text { color: rgba(255,255,255,0.82); }
-.footer-email { color: #FFFFFF; }
-a.footer-email { color: #FFFFFF; border-bottom: 1px solid rgba(255,255,255,0.35); padding-bottom: 1px; }
-a.footer-email:hover { border-color: #FFFFFF; }
-.scroll-content > :first-child { box-shadow: 0 -30px 80px rgba(0,0,0,0.1); }
-
-
-/* ── ANIMATIONS ── */
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-@keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
-
-/* ── RESPONSIVE ── */
-@media (max-width: 600px) {
-  .hero { position: relative; height: auto; min-height: 100vh; }
-  .hero-wrapper { height: auto; }
-  .scroll-content > :first-child { box-shadow: none; }
-}
-</style>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <!-- PANEL 1: HERO -->
 <div class="hero-wrapper">
   <section class="hero">
+    <header class="site-header site-header--overlay">
+      <nav class="site-nav" aria-label="Site">
+        <a href="about.html">About</a>
+        <a href="dispatch.html">Dispatch</a>
+        <a href="https://preview.mailerlite.io/forms/2378680/191810587265599097/share" class="nav-cta" aria-label="Subscribe to the Lenox Institute newsletter">Newsletter</a>
+      </nav>
+    </header>
     <div class="hero-content">
       <div class="hero-logo">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080">
@@ -226,15 +57,24 @@ a.footer-email:hover { border-color: #FFFFFF; }
     <h2 class="footer-heading">Join Us</h2>
     <p class="footer-text">For researchers, collaborators, and the intellectually curious.</p>
     <p class="footer-email"><a href="mailto:info@lenoxinstitute.org" class="footer-email">info@lenoxinstitute.org</a></p>
-    <p class="footer-email">
-      <a href="https://www.instagram.com/lenox__institute/" class="footer-email" aria-label="Lenox Institute on Instagram">Instagram</a>
-    </p>
-    <p class="footer-email">
-      <a href="https://www.linkedin.com/company/lenox-institute/" class="footer-email" aria-label="Lenox Institute on LinkedIn" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-    </p>
-    <p class="footer-email">
-      <a href="https://preview.mailerlite.io/forms/2378680/191810587265599097/share" class="footer-email" aria-label="Subscribe to the Lenox Institute newsletter">Newsletter</a>
-    </p>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/lenox__institute/" aria-label="Lenox Institute on Instagram" target="_blank" rel="noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z"/>
+          <path d="M9 12a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/>
+          <path d="M16.5 7.5v.01"/>
+        </svg>
+      </a>
+      <a href="https://www.linkedin.com/company/lenox-institute/" aria-label="Lenox Institute on LinkedIn" target="_blank" rel="noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M8 11v5"/>
+          <path d="M8 8v.01"/>
+          <path d="M12 16v-5"/>
+          <path d="M16 16v-3a2 2 0 1 0 -4 0"/>
+          <path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z"/>
+        </svg>
+      </a>
+    </div>
   </div>
 </section>
 
