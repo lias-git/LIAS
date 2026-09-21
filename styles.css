@@ -315,8 +315,16 @@ a.footer-email:hover { border-color: #FFFFFF; }
   .hero-wrapper { height: auto; }
   .scroll-content > :first-child { box-shadow: none; }
 
-  .site-header { min-height: 4rem; padding: 0 1.25rem; }
-  .site-nav { gap: 1.25rem; }
+  /* Header: links on row 1, CTA pill on its own row beneath (grid assumes two links) */
+  .site-header { min-height: 4rem; padding: 1.05rem 1.25rem 1rem; align-items: flex-start; }
+  .site-nav {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    justify-items: end;
+    align-items: center;
+    gap: 0.75rem 1.25rem;
+    margin-top: 0.5rem;
+  }
   .site-nav a { font-size: 0.62rem; letter-spacing: 0.18em; }
-  .site-nav a.nav-cta { padding: 0.5em 1.1em; }
+  .site-nav a.nav-cta { grid-column: 1 / -1; justify-self: end; white-space: nowrap; padding: 0.5em 1.1em; }
 }
